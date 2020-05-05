@@ -17,7 +17,7 @@ import com.mustafa.uiperformancetests.databinding.ItemXmlBinding
 class XMLAdapter : RecyclerView.Adapter<XMLAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        Log.d("ERROR", " onCreateViewHolder ")
+//        Log.d("ERROR", " onCreateViewHolder ")
         val binding = ItemXmlBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return Holder(binding)
     }

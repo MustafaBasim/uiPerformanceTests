@@ -24,12 +24,21 @@ class XMLActivity : AppCompatActivity() {
         }
         val end = System.currentTimeMillis()
         Log.d("ERROR", " onCreate time = ${end - start} ")
+
+        window.decorView.post {
+            val end2 = System.currentTimeMillis()
+            Log.d("ERROR", " XMLActivity decorView time = ${end2 - start} ")
+        }
     }
 
-    override fun onAttachedToWindow() {
-        super.onAttachedToWindow()
-        val end = System.currentTimeMillis()
-        Log.d("ERROR", " onAttachedToWindow time = ${end - start} ")
-        finish()
+    var windowFocusChanged = true
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (windowFocusChanged && hasFocus) {
+            windowFocusChanged = false
+            val end = System.currentTimeMillis()
+            Log.d("ERROR", " onWindowFocusChanged time = ${end - start} ")
+            finish()
+        }
     }
 }
