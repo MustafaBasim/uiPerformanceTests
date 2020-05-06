@@ -1,9 +1,10 @@
-package com.mustafa.uiperformancetests
+package com.mustafa.uiperformancetests.xml
 
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.mustafa.uiperformancetests.User
 import com.mustafa.uiperformancetests.databinding.ItemXmlBinding
 
 /**
@@ -17,7 +18,7 @@ import com.mustafa.uiperformancetests.databinding.ItemXmlBinding
 class XMLAdapter : RecyclerView.Adapter<XMLAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-//        Log.d("ERROR", " onCreateViewHolder ")
+        Log.d("ERROR", " onCreateViewHolder ")
         val binding = ItemXmlBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return Holder(binding)
     }
