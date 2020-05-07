@@ -23,14 +23,14 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             setContentView(root)
             xmlBtn.setOnClickListener {
-                repeatCount = 10
+                repeatCount = 0
                 didCalculate = false
                 targetActivity = "XMLActivity"
                 startActivity(Intent(root.context, XMLActivity::class.java))
             }
 
             byCodeBtn.setOnClickListener {
-                repeatCount = 10
+                repeatCount = 0
                 didCalculate = false
                 targetActivity = "ByCodeActivity"
                 startActivity(Intent(root.context, ByCodeActivity::class.java))

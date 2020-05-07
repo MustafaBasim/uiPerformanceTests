@@ -58,8 +58,8 @@ class XMLActivity : AppCompatActivity() {
             val end = System.currentTimeMillis()
             val result = end - start
             Log.d("ERROR", " onWindowFocusChanged time = $result ") // 4
-            Numbers.XML.viewTreeObserver.add(result)
-            finish()
+            Numbers.XML.onWindowFocusChanged.add(result)
+//            finish()
         }
     }
 }
