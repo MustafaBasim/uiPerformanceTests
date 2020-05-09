@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.mustafa.uiperformancetests.bycode.ByCodeActivity
+import com.mustafa.uiperformancetests.compose.ComposeActivity
 import com.mustafa.uiperformancetests.databinding.ActivityMainBinding
 import com.mustafa.uiperformancetests.xml.XMLActivity
 
@@ -34,6 +35,13 @@ class MainActivity : AppCompatActivity() {
                 didCalculate = false
                 targetActivity = "ByCodeActivity"
                 startActivity(Intent(root.context, ByCodeActivity::class.java))
+            }
+
+            composeBtn.setOnClickListener {
+                repeatCount = 0
+                didCalculate = false
+                targetActivity = "ComposeActivity"
+                startActivity(Intent(root.context, ComposeActivity::class.java))
             }
         }
         window.decorView.post {
