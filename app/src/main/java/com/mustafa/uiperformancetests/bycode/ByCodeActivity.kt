@@ -69,6 +69,14 @@ class ByCodeActivity : AppCompatActivity() {
             })
     }
 
+    override fun onResume() {
+        super.onResume()
+        val end = System.currentTimeMillis()
+        val result = end - start
+        Log.d("ERROR", " onResume time = $result ") // 4
+        Numbers.ByCode.onResume.add(result)
+    }
+
     private var windowFocusChanged = true
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
@@ -76,7 +84,7 @@ class ByCodeActivity : AppCompatActivity() {
             windowFocusChanged = false
             val end = System.currentTimeMillis()
             val result = end - start
-            Log.d("ERROR", " onWindowFocusChanged time = $result ") // 4
+            Log.d("ERROR", " onWindowFocusChanged time = $result ") // 5
             Numbers.ByCode.onWindowFocusChanged.add(result)
 //            finish()
         }

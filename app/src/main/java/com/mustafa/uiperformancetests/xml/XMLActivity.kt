@@ -50,6 +50,14 @@ class XMLActivity : AppCompatActivity() {
             })
     }
 
+    override fun onResume() {
+        super.onResume()
+        val end = System.currentTimeMillis()
+        val result = end - start
+        Log.d("ERROR", " onResume time = $result ") // 4
+        Numbers.XML.onResume.add(result)
+    }
+
     private var windowFocusChanged = true
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
@@ -57,7 +65,7 @@ class XMLActivity : AppCompatActivity() {
             windowFocusChanged = false
             val end = System.currentTimeMillis()
             val result = end - start
-            Log.d("ERROR", " onWindowFocusChanged time = $result ") // 4
+            Log.d("ERROR", " onWindowFocusChanged time = $result ") // 5
             Numbers.XML.onWindowFocusChanged.add(result)
 //            finish()
         }

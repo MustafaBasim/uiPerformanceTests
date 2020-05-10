@@ -99,18 +99,28 @@ class MainActivity : AppCompatActivity() {
                 targetActivity = ""
                 binding.apply {
                     xmlLbl.text =
-                        "number of tries = ${Numbers.XML.onCreate.size}\n" +
+                        "number of tries = ${Numbers.XML.onResume.size}\n" +
                                 "onCreate ------- min ${Numbers.XML.onCreate.min()?.toInt()} max ${Numbers.XML.onCreate.max()?.toInt()} avg ${Numbers.XML.onCreate.average().toInt()}\n" +
                                 "viewTree ------- min ${Numbers.XML.viewTreeObserver.min()?.toInt()} max ${Numbers.XML.viewTreeObserver.max()?.toInt()} avg ${Numbers.XML.viewTreeObserver.average().toInt()}\n" +
                                 "decorView ----- min ${Numbers.XML.decorView.min()?.toInt()} max ${Numbers.XML.decorView.max()?.toInt()} avg ${Numbers.XML.decorView.average().toInt()}\n" +
+                                "onResume ------ min ${Numbers.XML.onResume.min()?.toInt()} max ${Numbers.XML.onResume.max()?.toInt()} avg ${Numbers.XML.onResume.average().toInt()}\n" +
                                 "WindowFocus min ${Numbers.XML.onWindowFocusChanged.min()?.toInt()} max ${Numbers.XML.onWindowFocusChanged.max()?.toInt()} avg ${Numbers.XML.onWindowFocusChanged.average().toInt()}"
 
                     byCodeLbl.text =
-                        "number of tries = ${Numbers.ByCode.onCreate.size}\n" +
+                        "number of tries = ${Numbers.ByCode.onResume.size}\n" +
                                 "onCreate ------- min ${Numbers.ByCode.onCreate.min()?.toInt()} max ${Numbers.ByCode.onCreate.max()?.toInt()} avg ${Numbers.ByCode.onCreate.average().toInt()}\n" +
                                 "viewTree ------- min ${Numbers.ByCode.viewTreeObserver.min()?.toInt()} max ${Numbers.ByCode.viewTreeObserver.max()?.toInt()} avg ${Numbers.ByCode.viewTreeObserver.average().toInt()}\n" +
                                 "decorView ----- min ${Numbers.ByCode.decorView.min()?.toInt()} max ${Numbers.ByCode.decorView.max()?.toInt()} avg ${Numbers.ByCode.decorView.average().toInt()}\n" +
+                                "onResume ------ min ${Numbers.ByCode.onResume.min()?.toInt()} max ${Numbers.ByCode.onResume.max()?.toInt()} avg ${Numbers.ByCode.onResume.average().toInt()}\n" +
                                 "WindowFocus min ${Numbers.ByCode.onWindowFocusChanged.min()?.toInt()} max ${Numbers.ByCode.onWindowFocusChanged.max()?.toInt()} avg ${Numbers.ByCode.onWindowFocusChanged.average().toInt()}"
+
+                    composeLbl.text =
+                        "number of tries = ${Numbers.Compose.onResume.size}\n" +
+                                "onCreate ------- min ${Numbers.Compose.onCreate.min()?.toInt()} max ${Numbers.Compose.onCreate.max()?.toInt()} avg ${Numbers.Compose.onCreate.average().toInt()}\n" +
+                                "viewTree ------- min ${Numbers.Compose.viewTreeObserver.min()?.toInt()} max ${Numbers.Compose.viewTreeObserver.max()?.toInt()} avg ${Numbers.Compose.viewTreeObserver.average().toInt()}\n" +
+                                "decorView ----- min ${Numbers.Compose.decorView.min()?.toInt()} max ${Numbers.Compose.decorView.max()?.toInt()} avg ${Numbers.Compose.decorView.average().toInt()}\n" +
+                                "onResume ------ min ${Numbers.Compose.onResume.min()?.toInt()} max ${Numbers.Compose.onResume.max()?.toInt()} avg ${Numbers.Compose.onResume.average().toInt()}\n" +
+                                "WindowFocus min ${Numbers.Compose.onWindowFocusChanged.min()?.toInt()} max ${Numbers.Compose.onWindowFocusChanged.max()?.toInt()} avg ${Numbers.Compose.onWindowFocusChanged.average().toInt()}"
                 }
             }
         }
