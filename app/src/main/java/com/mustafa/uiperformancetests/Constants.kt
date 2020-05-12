@@ -9,17 +9,7 @@ package com.mustafa.uiperformancetests
  */
 
 object Data {
-    val list = ArrayList<User>().apply {
-        var index = 1
-        for (i in 1..30) {
-            add(User("Mustafa - $index", R.drawable.ic_android, "This is a subtitle - $index"))
-            index++
-            add(User("Mustafa - $index", R.drawable.ic_favorite, "This is a subtitle - $index"))
-            index++
-            add(User("Mustafa - $index", R.drawable.ic_toys, "This is a subtitle - $index"))
-            index++
-        }
-    }
+    val list = ArrayList<User>()
 }
 
 class User(val name: String, val image: Int, val subtitle: String)

@@ -26,10 +26,7 @@ class XMLActivity : AppCompatActivity() {
             }
             recyclerView.layoutManager = LinearLayoutManager(root.context)
         }
-        val end = System.currentTimeMillis()
-        val result = end - start
-        Log.d("ERROR", " onCreate time = $result ") // 1
-        Numbers.XML.onCreate.add(result)
+
 
         binding.constraintLayout.rootView.viewTreeObserver.addOnGlobalLayoutListener(
             object : OnGlobalLayoutListener {
@@ -48,6 +45,11 @@ class XMLActivity : AppCompatActivity() {
             Log.d("ERROR", " decorView time = $result2 ") // 4
             Numbers.XML.decorView.add(result2)
         }
+
+        val end = System.currentTimeMillis()
+        val result = end - start
+        Log.d("ERROR", " onCreate time = $result ") // 1
+        Numbers.XML.onCreate.add(result)
     }
 
     override fun onResume() {

@@ -45,10 +45,6 @@ class ByCodeActivity : AppCompatActivity() {
         constraintSet.applyTo(constraintLayout)
 
         setContentView(constraintLayout)
-        val end = System.currentTimeMillis()
-        val result = end - start
-        Log.d("ERROR", " onCreate time = $result ") // 1
-        Numbers.ByCode.onCreate.add(result)
 
         constraintLayout.rootView.viewTreeObserver.addOnGlobalLayoutListener(
             object : ViewTreeObserver.OnGlobalLayoutListener {
@@ -67,6 +63,11 @@ class ByCodeActivity : AppCompatActivity() {
             Log.d("ERROR", " decorView time = $result2 ") // 4
             Numbers.ByCode.decorView.add(result2)
         }
+
+        val end = System.currentTimeMillis()
+        val result = end - start
+        Log.d("ERROR", " onCreate time = $result ") // 1
+        Numbers.ByCode.onCreate.add(result)
     }
 
     override fun onResume() {

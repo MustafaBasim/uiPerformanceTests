@@ -31,10 +31,6 @@ class ComposeActivity : AppCompatActivity() {
         setContent {
             AdapterListRecycler()
         }
-        val end = System.currentTimeMillis()
-        val result = end - start
-        Log.d("ERROR", " onCreate time = $result ") // 1
-        Numbers.Compose.onCreate.add(result)
 
         window.decorView.post {
             val end2 = System.currentTimeMillis()
@@ -42,6 +38,11 @@ class ComposeActivity : AppCompatActivity() {
             Log.d("ERROR", " decorView time = $result2 ") // 4
             Numbers.Compose.decorView.add(result2)
         }
+
+        val end = System.currentTimeMillis()
+        val result = end - start
+        Log.d("ERROR", " onCreate time = $result ") // 1
+        Numbers.Compose.onCreate.add(result)
     }
 
     override fun onResume() {
