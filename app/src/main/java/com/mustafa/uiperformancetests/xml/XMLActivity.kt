@@ -31,30 +31,30 @@ class XMLActivity : AppCompatActivity() {
         Log.d("ERROR", " onCreate time = $result ") // 1
         Numbers.XML.onCreate.add(result)
 
-        window.decorView.post {
-            val end2 = System.currentTimeMillis()
-            val result2 = end2 - start
-            Log.d("ERROR", " XMLActivity decorView time = $result2 ") // 3
-            Numbers.XML.decorView.add(result2)
-        }
-
         binding.constraintLayout.rootView.viewTreeObserver.addOnGlobalLayoutListener(
             object : OnGlobalLayoutListener {
                 override fun onGlobalLayout() {
                     binding.constraintLayout.rootView.viewTreeObserver.removeOnGlobalLayoutListener(this)
                     val end2 = System.currentTimeMillis()
                     val result2 = end2 - start
-                    Log.d("ERROR", " viewTreeObserver time = $result2 ") // 2
+                    Log.d("ERROR", " viewTreeObserver time = $result2 ") // 3
                     Numbers.XML.viewTreeObserver.add(result2)
                 }
             })
+
+        window.decorView.post {
+            val end2 = System.currentTimeMillis()
+            val result2 = end2 - start
+            Log.d("ERROR", " decorView time = $result2 ") // 4
+            Numbers.XML.decorView.add(result2)
+        }
     }
 
     override fun onResume() {
         super.onResume()
         val end = System.currentTimeMillis()
         val result = end - start
-        Log.d("ERROR", " onResume time = $result ") // 4
+        Log.d("ERROR", " onResume time = $result ") // 2
         Numbers.XML.onResume.add(result)
     }
 
@@ -67,7 +67,6 @@ class XMLActivity : AppCompatActivity() {
             val result = end - start
             Log.d("ERROR", " onWindowFocusChanged time = $result ") // 5
             Numbers.XML.onWindowFocusChanged.add(result)
-//            finish()
         }
     }
 }

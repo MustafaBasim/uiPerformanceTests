@@ -1,7 +1,6 @@
 package com.mustafa.uiperformancetests.bycode
 
 import android.content.res.Resources
-import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
@@ -23,8 +22,6 @@ import com.mustafa.uiperformancetests.User
 class ByCodeAdapter : RecyclerView.Adapter<ByCodeAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        Log.d("ERROR", " onCreateViewHolder ")
-
         val constraintLayout = ConstraintLayout(parent.context).apply {
             id = View.generateViewId()
             layoutParams = ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT)
@@ -105,7 +102,7 @@ class ByCodeAdapter : RecyclerView.Adapter<ByCodeAdapter.Holder>() {
         notifyDataSetChanged()
     }
 
-    fun Int.toDp(resources: Resources): Int {
+    private fun Int.toDp(resources: Resources): Int {
         return TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,
             this.toFloat(),
