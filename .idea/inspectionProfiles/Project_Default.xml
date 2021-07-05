@@ -1,0 +1,29 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="CanBeVal" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="ClassName" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="ConstPropertyName" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="ConvertToStringTemplate" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="FoldInitializerAndIfToElvis" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="FunctionName" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="FunctionWithLambdaExpressionBody" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="IfThenToElvis" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="IfThenToSafeAccess" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="KDocMissingDocumentation" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <scope name="Changed Files" level="WARNING" enabled="true" />
+    </inspection_tool>
+    <inspection_tool class="LocalVariableName" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="MayBeConstant" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="ObjectPropertyName" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="PackageName" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="PrivatePropertyName" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="PropertyName" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="RedundantModalityModifier" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="ReplaceStringFormatWithLiteral" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="ReplaceToStringWithStringTemplate" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="SimplifyBooleanWithConstants" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="UnusedReceiverParameter" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="UnusedSymbol" enabled="true" level="ERROR" enabled_by_default="true" />
+  </profile>
+</component>

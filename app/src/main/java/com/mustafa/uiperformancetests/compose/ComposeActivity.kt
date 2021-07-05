@@ -2,26 +2,27 @@ package com.mustafa.uiperformancetests.compose
 
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.Composable
-import androidx.ui.core.Modifier
-import androidx.ui.core.setContent
-import androidx.ui.foundation.AdapterList
-import androidx.ui.foundation.Image
-import androidx.ui.foundation.Text
-import androidx.ui.graphics.Color
-import androidx.ui.layout.*
-import androidx.ui.res.vectorResource
-import androidx.ui.text.TextStyle
-import androidx.ui.text.style.TextOverflow
-import androidx.ui.tooling.preview.Preview
-import androidx.ui.unit.dp
-import androidx.ui.unit.sp
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.mustafa.uiperformancetests.Data
 import com.mustafa.uiperformancetests.Numbers
 
 
-class ComposeActivity : AppCompatActivity() {
+class ComposeActivity : ComponentActivity() {
 
     private var start = 0L
 
@@ -29,7 +30,7 @@ class ComposeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         start = System.currentTimeMillis()
         setContent {
-            AdapterListRecycler()
+            adapterListRecycler()
         }
 
         window.decorView.post {
@@ -67,19 +68,23 @@ class ComposeActivity : AppCompatActivity() {
 
 
     @Composable
-    fun AdapterListRecycler() {
-        AdapterList(data = Data.list) {
-            Row(modifier = Modifier.padding(16.dp, 0.dp, 0.dp, 8.dp)) {
-                val imageModifier = Modifier
-                    .height(50.dp)
-                    .width(50.dp)
-                    .padding(0.dp, 32.dp, 0.dp, 0.dp)
-                Image(vectorResource(it.image), modifier = imageModifier)
-                Spacer(Modifier.preferredHeight(16.dp))
-                Log.d("ERROR", " 2 ")
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Text(it.name, style = TextStyle(fontSize = 18.sp, color = Color.Gray), overflow = TextOverflow.Ellipsis)
-                    Text(it.subtitle, style = TextStyle(fontSize = 14.sp, color = Color.Gray), maxLines = 2)
+    fun adapterListRecycler() {
+        LazyColumn {
+            items(Data.list.size) { index: Int ->
+                val it = Data.list.get(index)
+                    Row(modifier = Modifier.padding(16.dp, 0.dp, 0.dp, 8.dp)) {
+                    val imageModifier = Modifier
+                        .height(50.dp)
+                        .width(50.dp)
+                        .padding(0.dp, 32.dp, 0.dp, 0.dp)
+                    Image(painter = painterResource(it.image), contentDescription = null,
+                        modifier = imageModifier, contentScale = ContentScale.Crop)
+                    Spacer(Modifier.height(16.dp))
+                    Log.d("ERROR", " 2 ")
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Text(it.name, style = TextStyle(fontSize = 18.sp, color = Color.Gray), overflow = TextOverflow.Ellipsis)
+                        Text(it.subtitle, style = TextStyle(fontSize = 14.sp, color = Color.Gray), maxLines = 2)
+                    }
                 }
             }
         }
@@ -87,8 +92,8 @@ class ComposeActivity : AppCompatActivity() {
 
     @Preview
     @Composable
-    fun DefaultPreview() {
-        AdapterListRecycler()
+    fun defaultPreview() {
+        adapterListRecycler()
     }
 }
 
