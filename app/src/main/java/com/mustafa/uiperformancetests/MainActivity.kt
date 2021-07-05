@@ -1,7 +1,6 @@
 package com.mustafa.uiperformancetests
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mustafa.uiperformancetests.bycode.ByCodeActivity
@@ -30,15 +29,15 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             setContentView(root)
             xmlBtn.setOnClickListener {
-                startActivity(Intent(root.context, XMLActivity::class.java))
+                AutoTestUtil.startTest(this@MainActivity, XMLActivity::class.java)
             }
 
             byCodeBtn.setOnClickListener {
-                startActivity(Intent(root.context, ByCodeActivity::class.java))
+                AutoTestUtil.startTest(this@MainActivity, ByCodeActivity::class.java)
             }
 
             composeBtn.setOnClickListener {
-                startActivity(Intent(root.context, ComposeActivity::class.java))
+                AutoTestUtil.startTest(this@MainActivity, ComposeActivity::class.java)
             }
         }
     }
