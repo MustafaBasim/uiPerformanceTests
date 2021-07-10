@@ -9,8 +9,8 @@ I didn't exactly know how to measure the views creating time so I added multiple
 Note: I tested each one alone then close the app then test the other one, no recent apps in the background, no wifi ( in case some app used it and made the CPU busy a bit ).
 
 The environment :
- - Android Studio 4.1 Canary 7
- - Compose version : 0.1.0-dev10
+ - Android Studio Arctic Fox 2020.3.1 beta 3
+ - Compose version : 1.0.0-rc01 ( Updated thanks to [Callmepeanut](https://github.com/callmepeanut) contribution )
  - Tested on Galaxy S8 ( SM-G950F, Android 9 )  and Huawei Y5 Prime 2018 ( HUAWEI DRA-LX2, Android 8.1 )
  - I tested it in 10 runs for each method.
   ##
@@ -18,53 +18,53 @@ The environment :
 #### Benchmarks for  Galaxy S8 ( SM-G950F )  :
 | XML  | Min | Max | Average |
 |--|--|--|--|
-| onCreate | 23 | 72 | 32|
-| onResume| 28| 79| 38|
-| viewTreeObserver | 147| 331| 204|
-| window.decorView| 156| 342| 216|
-| onWindowFocusChanged| 196| 405| 256|
+| onCreate | 21 | 70 | 30|
+| onResume| 26| 82| 36|
+| viewTreeObserver | 134| 326| 185|
+| window.decorView| 141| 337| 191|
+| onWindowFocusChanged| 142| 402| 200|
   ####
 | By Code | Min | Max | Average |
 |--|--|--|--|
-| onCreate | 23| 69 | 31|
-| onResume| 27| 76 | 37|
-| viewTreeObserver | 130| 276| 183|
-| window.decorView| 136| 285| 194|
-| onWindowFocusChanged| 177| 341| 235|
+| onCreate | 23| 78 | 30|
+| onResume| 27| 83 | 36|
+| viewTreeObserver | 126| 289| 174|
+| window.decorView| 132| 297| 180|
+| onWindowFocusChanged| 134| 345| 187|
 ####
 | Jetback Compose | Min | Max | Average |
 |--|--|--|--|
-| onCreate | 31| 141| 42|
-| onResume| 35| 148| 48|
+| onCreate | 10| 36| 14|
+| onResume| 14| 45| 18|
 | viewTreeObserver | null | null  | null  |
-| window.decorView| 176| 681| 265|
-| onWindowFocusChanged| 229| 811| 334|
+| window.decorView| 140| 1000| 286|
+| onWindowFocusChanged| 199| 1013| 342|
 
   ##
 #### Benchmarks for Huawei Y5 Prime 2018 ( HUAWEI DRA-LX2 )  :
 | XML  | Min | Max | Average |
 |--|--|--|--|
-| onCreate | 64| 138| 75|
-| onResume| 77| 156| 91|
-| viewTreeObserver | 239| 655| 359|
-| window.decorView| 261| 673| 401|
-| onWindowFocusChanged| 296| 767| 439|
+| onCreate | 71| 152| 100|
+| onResume| 88| 179| 121|
+| viewTreeObserver | 314| 833| 497|
+| window.decorView| 333| 933| 529|
+| onWindowFocusChanged| 334| 935| 530|
   ####
 | By Code | Min | Max | Average |
 |--|--|--|--|
-| onCreate | 56| 149| 76|
-| onResume| 70| 167| 93|
-| viewTreeObserver | 218| 581| 331|
-| window.decorView| 242| 680| 367|
-| onWindowFocusChanged| 280| 682| 411|
+| onCreate | 57| 134| 75|
+| onResume| 72| 153| 91|
+| viewTreeObserver | 228| 565| 323|
+| window.decorView| 244| 588| 343|
+| onWindowFocusChanged| 245| 661| 351|
 ####
 | Jetback Compose | Min | Max | Average |
 |--|--|--|--|
-| onCreate | 71| 183| 89|
-| onResume| 86| 201| 107|
+| onCreate | 22| 41| 27|
+| onResume| 35| 67| 43|
 | viewTreeObserver | null | null  | null  |
-| window.decorView| 453| 1753| 711|
-| onWindowFocusChanged| 478| 1754| 763|
+| window.decorView| 352| 1830| 648|
+| onWindowFocusChanged| 427| 1833| 735|
 
   ##
 All done with the same identical UI:

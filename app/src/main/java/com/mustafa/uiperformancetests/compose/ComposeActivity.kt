@@ -7,7 +7,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -30,7 +32,7 @@ class ComposeActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         start = System.currentTimeMillis()
         setContent {
-            adapterListRecycler()
+            AdapterListRecycler()
         }
 
         window.decorView.post {
@@ -68,32 +70,42 @@ class ComposeActivity : ComponentActivity() {
 
 
     @Composable
-    fun adapterListRecycler() {
-        LazyColumn {
-            items(Data.list.size) { index: Int ->
-                val it = Data.list.get(index)
-                    Row(modifier = Modifier.padding(16.dp, 0.dp, 0.dp, 8.dp)) {
-                    val imageModifier = Modifier
-                        .height(50.dp)
-                        .width(50.dp)
-                        .padding(0.dp, 32.dp, 0.dp, 0.dp)
-                    Image(painter = painterResource(it.image), contentDescription = null,
-                        modifier = imageModifier, contentScale = ContentScale.Crop)
-                    Spacer(Modifier.height(16.dp))
-                    Log.d("ERROR", " 2 ")
-                    Column(modifier = Modifier.padding(16.dp)) {
-                        Text(it.name, style = TextStyle(fontSize = 18.sp, color = Color.Gray), overflow = TextOverflow.Ellipsis)
-                        Text(it.subtitle, style = TextStyle(fontSize = 14.sp, color = Color.Gray), maxLines = 2)
+    private fun AdapterListRecycler() { // Composable functions that return Unit should start with an uppercase letter
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = {
+                        Text(text = "UI Performance Tests")
+                    }
+                )
+            }, content = {
+                LazyColumn {
+                    items(Data.list.size) { index: Int ->
+                        val item = Data.list[index]
+                        Row(modifier = Modifier.padding(16.dp, 20.dp, 0.dp, 8.dp)) {
+                            val imageModifier = Modifier
+                                .height(50.dp)
+                                .width(50.dp)
+                                .padding(0.dp, 0.dp, 0.dp, 0.dp)
+                            Image(
+                                painter = painterResource(item.image), contentDescription = null,
+                                modifier = imageModifier, contentScale = ContentScale.Crop
+                            )
+                            Spacer(Modifier.height(16.dp))
+                            Column(modifier = Modifier.padding(16.dp, 0.dp, 0.dp, 0.dp)) {
+                                Text(item.name, style = TextStyle(fontSize = 18.sp, color = Color.Gray), overflow = TextOverflow.Ellipsis)
+                                Text(item.subtitle, style = TextStyle(fontSize = 14.sp, color = Color.Gray), maxLines = 2)
+                            }
+                        }
                     }
                 }
-            }
-        }
+            })
     }
 
     @Preview
     @Composable
-    fun defaultPreview() {
-        adapterListRecycler()
+    private fun DefaultPreview() {
+        AdapterListRecycler()
     }
 }
 
